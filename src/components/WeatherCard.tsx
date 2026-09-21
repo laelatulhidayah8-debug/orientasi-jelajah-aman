@@ -1,6 +1,6 @@
 // components/WeatherCard.tsx
 import { Text, View } from "react-native";
-import { WeatherCardProps } from "../types/cuaca";
+import { WeatherCardProps } from "../../types/cuaca";
 export default function WeatherCard({
   kota,
   suhu,
