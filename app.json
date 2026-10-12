@@ -1,3 +1,4 @@
+
 {
   "expo": {
     "name": "orientasi-jelajah-aman",
@@ -31,6 +32,12 @@
           "backgroundColor": "#208AEF",
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Jelajah Aman menggunakan lokasi Anda untuk menampilkan cuaca di kota terdekat."
         }
       ]
     ],
