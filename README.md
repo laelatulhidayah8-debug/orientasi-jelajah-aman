@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
@@ -54,7 +55,18 @@ To learn more about developing your project with Expo, look at the following res
 Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-=======
+- # [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
 # orientasi-jelajah-aman
->>>>>>> 73ac5c70fd12bc7e6e5fb365dfbd8b97d390bfe8
+
+> > > > > > > 73ac5c70fd12bc7e6e5fb365dfbd8b97d390bfe8
+
+## Status Data
+
+Cache segar adalah data cuaca yang disimpan di HP dan umurnya masih di bawah 30 menit,
+jadi aplikasi langsung memakainya tanpa internet. Cache basi adalah data simpanan yang
+sudah lebih dari 30 menit, tapi tetap ditampilkan karena internet sedang mati. First-run
+offline terjadi kalau internet mati dan belum ada data tersimpan sama sekali, jadi
+aplikasi hanya bisa menampilkan pesan error dan tombol Coba Lagi. Label status penting
+supaya pengguna tahu apakah suhu yang dilihat itu data baru atau salinan lama, sehingga
+tidak salah mengambil keputusan dari data yang sudah usang.
