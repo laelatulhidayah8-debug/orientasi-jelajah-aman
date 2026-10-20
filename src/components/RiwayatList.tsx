@@ -10,9 +10,9 @@ export default function RiwayatList({ daftarKota }: RiwayatListProps) {
      {daftarKota.map((kota) => (
     // Format objek pada href lolos pengecekan TypeScript Expo Router
     <Link key={kota} href={{ pathname: "../detail/[kota]", params: { kota } }}>
-    <Text>{kota}</Text>
+     <Text>{kota}</Text>
     </Link>
-    ))}
-    </View>
-    );
+  ))}
+ </View>
+ );
 }

@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import { LaporanUdara } from "../../types/cuaca";
+import { LaporanUdara } from "../types/cuaca";
 
 interface IndikatorAQIProps {
   laporan: LaporanUdara;

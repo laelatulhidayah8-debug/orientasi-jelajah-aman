@@ -8,8 +8,10 @@ return (
 <View style={{ padding: 16, gap: 16 }}>
 <WeatherCard kota={kota} suhu={29} tingkatAQI="BAIK" />
 <Button
-title="Tambahkan ke Favorit"
-onPress={() => router.push("../tambah-favorit")}
+  title="Tambahkan ke Favorit"
+  onPress={() =>
+    router.push({ pathname: "/tambah-favorit", params: { kota } })
+  }
 />
 </View>
 );
