@@ -1,18 +1,50 @@
-// src/app/detail/[kota].tsx
-import { View, Button } from "react-native";
+import { View, Button, Alert } from "react-native";
 import { useLocalSearchParams, router } from "expo-router";
 import WeatherCard from "../../components/WeatherCard";
+
 export default function HalamanDetail() {
-const { kota } = useLocalSearchParams<{ kota: string }>();
-return (
-<View style={{ padding: 16, gap: 16 }}>
-<WeatherCard kota={kota} suhu={29} tingkatAQI="BAIK" />
-<Button
-  title="Tambahkan ke Favorit"
-  onPress={() =>
-    router.push({ pathname: "/tambah-favorit", params: { kota } })
+  const { kota } = useLocalSearchParams<{
+    kota: string;
+  }>();
+
+  function bukaFavorit() {
+    if (!kota) {
+      Alert.alert(
+        "Peringatan",
+        "Nama kota tidak ditemukan."
+      );
+      return;
+    }
+
+    router.push({
+      pathname: "/tambah-favorit" as any,
+      params: {
+        id: kota,
+        nama: kota,
+        lat: "",
+        lon: "",
+      },
+    });
   }
-/>
-</View>
-);
+
+  return (
+    <View
+      style={{
+        flex: 1,
+        padding: 16,
+        gap: 16,
+      }}
+    >
+      <WeatherCard
+        kota={kota || "Tidak diketahui"}
+        suhu={29}
+        tingkatAQI="BAIK"
+      />
+
+      <Button
+        title="Tambahkan ke Favorit"
+        onPress={bukaFavorit}
+      />
+    </View>
+  );
 }
