@@ -1,56 +1,56 @@
-import React from 'react';
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
 
-import {
-  AppThemeProvider,
-  useTheme,
-} from '../../context/theme';
+import { Tabs } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
 
-function LayoutIsi() {
+import { useTheme } from "../../context/theme";
+
+export default function TabLayout() {
   const { isDark, colors } = useTheme();
 
-  const baseTheme = isDark ? DarkTheme : DefaultTheme;
-
-  const navigationTheme = {
-    ...baseTheme,
-    colors: {
-      ...baseTheme.colors,
-      primary: colors.primary,
-      background: colors.bg,
-      card: colors.card,
-      text: colors.text,
-      border: colors.border,
-    },
-  };
-
   return (
-    <ThemeProvider value={navigationTheme}>
-      <Stack
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: colors.card,
-          },
-          headerTintColor: colors.text,
-          contentStyle: {
-            backgroundColor: colors.bg,
-          },
+    <Tabs
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: colors.primary,
+        tabBarInactiveTintColor: isDark ? "#AAAAAA" : "#777777",
+        tabBarStyle: {
+          backgroundColor: colors.card,
+          borderTopColor: colors.border,
+        },
+        sceneStyle: {
+          backgroundColor: colors.bg,
+        },
+      }}
+    >
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: "Beranda",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="cloud-outline" size={size} color={color} />
+          ),
         }}
       />
-      <StatusBar style={isDark ? 'light' : 'dark'} />
-    </ThemeProvider>
-  );
-}
 
-export default function RootLayout() {
-  return (
-    <AppThemeProvider>
-      <LayoutIsi />
-    </AppThemeProvider>
+      <Tabs.Screen
+        name="riwayat"
+        options={{
+          title: "Favorit",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="heart-outline" size={size} color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="pengaturan"
+        options={{
+          title: "Pengaturan",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="settings-outline" size={size} color={color} />
+          ),
+        }}
+      />
+    </Tabs>
   );
 }
